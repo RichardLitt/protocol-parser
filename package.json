@@ -1,6 +1,6 @@
 {
   "name": "protocol-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parse metatags for OGP, Twitter cards, and OSMT",
   "main": "index.js",
   "scripts": {
