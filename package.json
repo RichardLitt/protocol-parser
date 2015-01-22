@@ -1,0 +1,22 @@
+{
+  "name": "protocol-parser",
+  "version": "0.0.0",
+  "description": "Parse metatags for OGP, Twitter cards, and OSMT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\"git#github.com:RichardLitt/protocol-parser.git\""
+  },
+  "keywords": [
+    "parse",
+    "protocol",
+    "OGP",
+    "twitter",
+    "OSMT"
+  ],
+  "author": "Richard Littauer",
+  "license": "MIT"
+}
