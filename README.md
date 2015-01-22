@@ -1,5 +1,5 @@
 #protocol-parser
-Parse <head> for various protocols: OGP, Twitter, and OSMT supported.
+Parse metatags for various protocols: OGP, Twitter, and OSMT supported.
 
 ## Installation
 Via [npm](http://search.npmjs.org/#/ogp):
@@ -33,5 +33,5 @@ _More to be filled out._
 
 ## Credits
 
-Written and maintained by [Richard Littauer](https://github.com/RichardLitt).
+Written and maintained by [Richard Littauer](https://github.com/RichardLitt).  
 _Initially based on [node-ogp](https://github.com/SpeCT/node-ogp)._
