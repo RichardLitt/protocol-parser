@@ -1,16 +1,13 @@
 #protocol-parser
-Parse metatags for various protocols: OGP, Twitter, and OSMT supported.
+Parse metatags for various protocols: OGP, Twitter, and OSMT supported. 
+
+[![NPM](https://nodei.co/npm/protocol-parser.png)](https://nodei.co/npm/protocol-parser/)
 
 ## Installation
-Via [npm](http://search.npmjs.org/#/ogp):
 
-    $ npm install protocol-parser
-
-As a submodule of your project
-
-    $ git submodule add http://github.com/RichardLitt/protocol-parser.git protocol-parser
-    $ git submodule update --init
-
+```bash
+$ npm install protocol-parser
+```
 
 ## Usage
 
@@ -29,9 +26,14 @@ protocolParser.parse(window, 'os')
 }
 ```
 
-_More to be filled out._
+###Method arguments
+
+**protocolParser.parse**(_window_, _prefix_, _divider_)
+ * _window_
+ * _prefix_: Str. This should be the prefix you want to get, for instance: `os`, `og`, `twitter`.
+ * _divider_: Str. defaults to `:`. For some standards, such as `citation`, you should go with `_`. 
+
 
 ## Credits
 
 Written and maintained by [Richard Littauer](https://github.com/RichardLitt).  
-_Initially based on [node-ogp](https://github.com/SpeCT/node-ogp)._

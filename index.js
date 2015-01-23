@@ -14,8 +14,10 @@ var isProfileCompliant = function(window, prefix, profileHref) {
   return compliant
 }
 
-var parse = function(window, prefix) {
+var parse = function(window, prefix, divider) {
   var result = {}
+
+  divider = divider || ':'
 
   // Get both 'name' and 'property' attr
   var propList = Array.prototype.slice.call(
@@ -39,13 +41,13 @@ var parse = function(window, prefix) {
     else if (!tag.name && tag.property)
       property = tag.property.value
     else
-      if (tag.property.value.split(':')[0] === prefix)
+      if (tag.property.value.split(divider)[0] === prefix)
         property = tag.property.value
       else
         property = tag.name.value
 
     // Remove the prefix:
-    if (property.split(':')[0] === prefix)
+    if (property.split(divider)[0] === prefix)
       property = property.slice(prefix.length + 1)
 
     // Save props. Save as Array if multiple.
