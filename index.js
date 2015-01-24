@@ -14,17 +14,25 @@ var isProfileCompliant = function(window, prefix, profileHref) {
   return compliant
 }
 
-var parse = function(window, prefix, divider) {
+var parse = function(window, prefix) {
   var result = {}
 
-  divider = divider || ':'
+  // HTML meta tags should be case insensitive
+  prefix = prefix.toLowerCase()
 
   // Get both 'name' and 'property' attr
-  var propList = Array.prototype.slice.call(
-    window.document.querySelectorAll('meta[property^=' + prefix + ']')
+  var propList = Array.prototype.filter.call(
+    window.document.querySelectorAll('meta[property]'),
+    function(val) {
+      return (val.attributes.property.value) ?
+        val.attributes.property.value.toLowerCase().startsWith(prefix) : false
+    }
   )
-  var nameList = Array.prototype.slice.call(
-    window.document.querySelectorAll('meta[name^=' + prefix + ']')
+  var nameList = Array.prototype.filter.call(
+    window.document.querySelectorAll('meta[name]'),
+    function(val) {
+      return (val.name) ? val.name.toLowerCase().startsWith(prefix) : false
+    }
   )
 
   // Merge the two NodeLists together
@@ -41,13 +49,13 @@ var parse = function(window, prefix, divider) {
     else if (!tag.name && tag.property)
       property = tag.property.value
     else
-      if (tag.property.value.split(divider)[0] === prefix)
+      if (tag.property.value.startsWith(prefix))
         property = tag.property.value
       else
         property = tag.name.value
 
     // Remove the prefix:
-    if (property.split(divider)[0] === prefix)
+    if (property.startsWith(prefix))
       property = property.slice(prefix.length + 1)
 
     // Save props. Save as Array if multiple.
@@ -62,5 +70,16 @@ var parse = function(window, prefix, divider) {
   return result
 }
 
+var standardProtocols = function() {
+  return {
+    'citation': this.parse(window, 'citation'),
+    'dc': this.parse(window, 'dc'),
+    'og': this.parse(window, 'og'),
+    'twitter': this.parse(window, 'twitter'),
+    'os': this.parse(window, 'os')
+  }
+}
+
 exports.isProfileCompliant = isProfileCompliant
 exports.parse = parse
+exports.standardProtocols = standardProtocols
