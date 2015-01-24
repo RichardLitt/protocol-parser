@@ -75,8 +75,8 @@ var standardProtocols = function() {
     'citation': this.parse(window, 'citation'),
     'dc': this.parse(window, 'dc'),
     'og': this.parse(window, 'og'),
-    'twitter': this.parse(window, 'twitter'),
-    'os': this.parse(window, 'os')
+    'os': this.parse(window, 'os'),
+    'twitter': this.parse(window, 'twitter')
   }
 }
 
