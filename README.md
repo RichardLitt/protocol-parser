@@ -17,12 +17,15 @@ var protocolParser = require('protocol-parser')
 protocolParser.isProfileCompliant(window, 'os', 'https://github.com/RichardLitt/open-source-metatags/')
 => true
 
-protocolParser.parse(window, 'os')
+protocolParser.parse(window, ['os', 'twitter'])
 => {
-  repo: "https://github.com/RichardLitt/open-source-metatags", 
-  rcs_type: "git", 
-  src: "git@github.com:RichardLitt/open-source-metatags.git", 
-  issue: "https://github.com/RichardLitt/open-source-metatags/issues"
+  'os': {
+    repo: "https://github.com/RichardLitt/open-source-metatags", 
+    rcs_type: "git", 
+    src: "git@github.com:RichardLitt/open-source-metatags.git", 
+    issue: "https://github.com/RichardLitt/open-source-metatags/issues"
+  },
+  'twitter': {...}
 }
 
 protocolParser.standardProtocols()
