@@ -76,10 +76,5 @@ var parse = function(window, prefix) {
   return container
 }
 
-var standardProtocols = function() {
-  return this.parse(window, ['citation', 'dc', 'og', 'os', 'twitter'])
-}
-
 exports.isProfileCompliant = isProfileCompliant
 exports.parse = parse
-exports.standardProtocols = standardProtocols
