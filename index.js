@@ -14,6 +14,20 @@ var isProfileCompliant = function(window, prefix, profileHref) {
   return compliant
 }
 
+var getPrefix = function(window) {
+  var result = {
+    'html': null,
+    'head': null
+  }
+
+  if (window.document.documentElement.attributes.prefix)
+    result.html['prefix'] = window.document.documentElement.attributes.prefix
+  if (window.document.head.attributes.prefix)
+    result.head['prefix'] = window.document.head.attributes.prefix
+  if (window.document.documentElement.attributes.xmlns)
+    // TODO Add shit here
+}
+
 var parse = function(window, prefix) {
   var container = {}
 
